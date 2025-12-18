@@ -1,0 +1,13 @@
+﻿using AutoMapper;
+using NvSystem.Domain.DTOs;
+using NvSystem.Domain.Entities;
+
+namespace NvSystem.Application.Mapper;
+
+public class AutoMapping : Profile
+{
+    public AutoMapping()
+    {
+        CreateMap<CreateUserRequest, User>().ReverseMap();
+    }
+}

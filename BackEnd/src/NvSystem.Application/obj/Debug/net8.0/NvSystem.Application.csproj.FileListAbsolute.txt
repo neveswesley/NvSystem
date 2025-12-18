@@ -1,0 +1,15 @@
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\bin\Debug\net8.0\NvSystem.Application.deps.json
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\bin\Debug\net8.0\NvSystem.Application.dll
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\bin\Debug\net8.0\NvSystem.Application.pdb
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\bin\Debug\net8.0\NvSystem.Domain.dll
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\bin\Debug\net8.0\NvSystem.Domain.pdb
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.csproj.AssemblyReference.cache
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.AssemblyInfoInputs.cache
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.AssemblyInfo.cs
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.csproj.CoreCompileInputs.cache
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.DFAAE259.Up2Date
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.dll
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\refint\NvSystem.Application.dll
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.pdb
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\ref\NvSystem.Application.dll

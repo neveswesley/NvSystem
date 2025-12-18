@@ -1,0 +1,6 @@
+@NvSystem.API_HostAddress = http://localhost:5199
+
+GET {{NvSystem.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
