@@ -16,6 +16,7 @@ public static class ServiceExtensions
     {
         AddRepositories(services, configuration);
         AddServices(services, configuration);
+        AddAuthentication(services, configuration);
     }
 
     private static void AddRepositories(this IServiceCollection services, IConfiguration configuration)

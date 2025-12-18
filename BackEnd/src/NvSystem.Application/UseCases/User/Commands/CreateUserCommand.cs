@@ -17,10 +17,11 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
     private readonly IValidator<CreateUserCommand> _validator;
     private readonly IPasswordHasher _passwordHasher;
 
-    public CreateUserCommandHandler(IUserRepository userRepository, IValidator<CreateUserCommand> validator)
+    public CreateUserCommandHandler(IUserRepository userRepository, IValidator<CreateUserCommand> validator, IPasswordHasher passwordHasher)
     {
         _userRepository = userRepository;
         _validator = validator;
+        _passwordHasher = passwordHasher;
     }
 
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -31,7 +32,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
             throw new ValidationException(result.Errors);
         
         var passwordHash = _passwordHasher.Hash(request.Password);
-
+        
         var user = new Domain.Entities.User
         {
             Name = request.Name,

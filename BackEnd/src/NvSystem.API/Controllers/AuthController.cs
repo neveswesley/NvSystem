@@ -2,8 +2,8 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using NvSystem.Application.UseCases.Login.Commands;
 using NvSystem.Domain.DTOs;
-using LoginRequest = NvSystem.Domain.DTOs.LoginRequest;
 
 namespace NvSystem.API.Controllers
 {
@@ -20,9 +20,9 @@ namespace NvSystem.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginRequest request)
+        public async Task<IActionResult> Login(LoginCommand request)
         {
-            var result = await _mediator.Send(new LoginRequest(request.Email, request.Password));
+            var result = await _mediator.Send(new LoginCommand(request.Email, request.Password));
             
             return Ok(result);
         }

@@ -13,3 +13,4 @@ D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.
 D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\refint\NvSystem.Application.dll
 D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.pdb
 D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\ref\NvSystem.Application.dll
+D:\Projetos\NvSystem\BackEnd\src\NvSystem.Application\obj\Debug\net8.0\NvSystem.Application.sourcelink.json
