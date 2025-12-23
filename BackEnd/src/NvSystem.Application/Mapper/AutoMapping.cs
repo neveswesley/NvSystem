@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using NvSystem.Application.UseCases.Category.Query;
 using NvSystem.Domain.DTOs;
 using NvSystem.Domain.Entities;
 
@@ -10,5 +11,6 @@ public class AutoMapping : Profile
     {
         CreateMap<CreateUserRequest, User>().ReverseMap();
         CreateMap<UserResponse, User>().ReverseMap();
+        CreateMap<GetCategoryResponse, Category>().ReverseMap();
     }
 }
