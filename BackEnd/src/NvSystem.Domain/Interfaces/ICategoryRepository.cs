@@ -2,4 +2,7 @@
 
 namespace NvSystem.Domain.Interfaces;
 
-public interface ICategoryRepository : IBaseRepository<Category>;
+public interface ICategoryRepository : IBaseRepository<Category>
+{
+    Task DisableCategory(Category category);
+}
