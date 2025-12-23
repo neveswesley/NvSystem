@@ -7,9 +7,9 @@ using NvSystem.Domain.Interfaces;
 
 namespace NvSystem.Application.UseCases.Login.Commands;
 
-public record LoginCommand (string Email, string Password) : IRequest<LoginResponse>;
+public record LoginCommand (string Email, string Password) : IRequest<AuthResponse>;
 
-public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
+public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthResponse>
 {
     
     private readonly IUserRepository _userRepository;
@@ -25,7 +25,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
         _passwordHasher = passwordHasher;
     }
 
-    public async Task<LoginResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
+    public async Task<AuthResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByEmail(request.Email)
                    ?? throw new UnauthorizedException("Invalid credentials");
@@ -38,15 +38,16 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
 
         await _refreshTokenRepository.Create(new RefreshToken
         {
-            Token = refreshToken,
             UserId = user.Id,
-            ExpiresAt = DateTime.UtcNow.AddDays(7)
+            Token = _passwordHasher.Hash(refreshToken),
+            ExpiresAt = DateTime.UtcNow.AddDays(7),
+            Revoked = false
         });
 
-        return new LoginResponse(
-            accessToken,
-            refreshToken,
-            DateTime.UtcNow.AddMinutes(15)
-        );
+        return new AuthResponse
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken
+        };
     }
 }

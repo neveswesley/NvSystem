@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
 using NvSystem.Application.UseCases.User.Commands;
-using NvSystem.Domain.Entities;
 
-namespace NvSystem.Application.UserUseCase.Validator;
+namespace NvSystem.Application.UseCases.User.Validator;
 
 public class CreateUserValidator : AbstractValidator<CreateUserCommand>
 {
@@ -20,6 +19,8 @@ public class CreateUserValidator : AbstractValidator<CreateUserCommand>
         RuleFor(x => x.Password)
             .NotEmpty().WithMessage("Password cannot be empty")
             .MinimumLength(6).WithMessage("Password must be at least 6 characters long");
-        
+
+        RuleFor(x => x.Role).IsInEnum();
+
     }
 }

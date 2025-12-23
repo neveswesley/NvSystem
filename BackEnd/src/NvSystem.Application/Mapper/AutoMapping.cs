@@ -9,5 +9,6 @@ public class AutoMapping : Profile
     public AutoMapping()
     {
         CreateMap<CreateUserRequest, User>().ReverseMap();
+        CreateMap<UserResponse, User>().ReverseMap();
     }
 }

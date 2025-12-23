@@ -3,11 +3,12 @@ using MediatR;
 using NvSystem.Application.Exceptions;
 using NvSystem.Application.Services.Interfaces;
 using NvSystem.Application.UserUseCase.Validator;
+using NvSystem.Domain.Enums;
 using NvSystem.Domain.Interfaces;
 
 namespace NvSystem.Application.UseCases.User.Commands;
 
-public sealed record CreateUserCommand(string Name, string Email, string Password) : IRequest<Guid>
+public sealed record CreateUserCommand(string Name, string Email, string Password, Role Role) : IRequest<Guid>
 {
 }
 
@@ -38,6 +39,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
             Name = request.Name,
             Email = request.Email,
             Password = passwordHash,
+            Role = request.Role,
             CreatedAt = DateTime.Now,
             IsActive = true
         };

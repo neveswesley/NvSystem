@@ -21,14 +21,28 @@ public class RefreshTokenRepository : IRefreshTokenRepository
         await _db.SaveChangesAsync();
     }
 
-    public async Task<RefreshToken?> GetByToken(string token)
+    public async Task<RefreshToken?> GetByToken(string hashedToken)
     {
-        return await _db.RefreshTokens.AsNoTracking().FirstOrDefaultAsync(x=>x.Token == token);
+        return await _db.RefreshTokens
+            .FirstOrDefaultAsync(x=>
+                x.Token == hashedToken &&
+                !x.Revoked &&
+                x.ExpiresAt >= DateTime.Now);
     }
 
     public async Task Update(RefreshToken token)
     {
         _db.RefreshTokens.Update(token);
         await _db.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<RefreshToken>> GetAllValid()
+    {
+        var refreshTokens = await _db.RefreshTokens
+            .AsNoTracking()
+            .Where(x=> x.Revoked == false && x.ExpiresAt >= DateTime.Now)
+            .ToListAsync();
+        
+        return refreshTokens;
     }
 }

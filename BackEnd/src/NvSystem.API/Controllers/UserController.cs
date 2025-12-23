@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NvSystem.Application.Services.Interfaces;
 using NvSystem.Application.UseCases.User.Commands;
+using NvSystem.Application.UseCases.User.Query;
 using NvSystem.Domain.DTOs;
 using NvSystem.Domain.Entities;
 
@@ -21,11 +22,18 @@ namespace NvSystem.API.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(CreateUserCommand request, CancellationToken cancellationToken)
+        [HttpPost("register")]
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand request, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(request, cancellationToken);
-            return Ok(result);
+            var userId = await _mediator.Send(request, cancellationToken);
+            return CreatedAtAction(nameof(GetById), new {id = userId}, userId);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            var entity = await _mediator.Send(new GetByIdQuery(id), cancellationToken);
+            return Ok(entity);
         }
 
         /*[HttpPost]

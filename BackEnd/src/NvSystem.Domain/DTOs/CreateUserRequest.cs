@@ -1,8 +1,11 @@
-﻿namespace NvSystem.Domain.DTOs;
+﻿using NvSystem.Domain.Enums;
+
+namespace NvSystem.Domain.DTOs;
 
 public class CreateUserRequest
 {
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
+    public Role Role { get; set; }
 }

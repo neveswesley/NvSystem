@@ -28,9 +28,9 @@ namespace NvSystem.API.Controllers
         }
 
         [HttpPost("refresh")]
-        public async Task<IActionResult> Refresh(RefreshRequest request)
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenCommand command)
         {
-            var result = await _mediator.Send(new RefreshTokenRequest(request.RefreshToken));
+            var result = await _mediator.Send(command);
             
             return Ok(result);
         }
