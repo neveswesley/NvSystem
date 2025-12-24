@@ -12,5 +12,7 @@ public class AutoMapping : Profile
         CreateMap<CreateUserRequest, User>().ReverseMap();
         CreateMap<UserResponse, User>().ReverseMap();
         CreateMap<GetCategoryResponse, Category>().ReverseMap();
+        CreateMap<Product, ProductResponse>().ReverseMap();
+        CreateMap<Category, CategorySimpleDto>().ReverseMap();
     }
 }

@@ -32,6 +32,8 @@ public static class ServiceExtensions
         services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IBarcodeGenerator, RandomBarCodeGenerator>();
     }
 
     private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)

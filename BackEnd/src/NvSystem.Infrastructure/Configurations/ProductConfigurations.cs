@@ -8,6 +8,13 @@ public class ProductConfigurations : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        throw new NotImplementedException();
+        builder.ToTable("Products");
+        
+        builder.HasKey(c => c.Id);
+        
+        builder
+            .HasOne(p => p.Category)
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.CategoryId);
     }
 }
