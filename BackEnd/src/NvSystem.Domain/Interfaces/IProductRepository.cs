@@ -7,4 +7,5 @@ public interface IProductRepository : IBaseRepository<Product>
 {
     Task<List<Product>> GetAllProductsWithCategory();
     Task<Product> GetProductByIdWithCategory(Guid id);
+    Task<Guid> DisableProduct(Guid id);
 }

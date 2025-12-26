@@ -24,4 +24,11 @@ public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
         return await _context.Products.Include(x=>x.Category).FirstOrDefaultAsync(x => x.Id == id);
     }
+
+    public async Task<Guid> DisableProduct(Guid id)
+    {
+        var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+        product.IsActive = false;
+        return product.Id;
+    }
 }
