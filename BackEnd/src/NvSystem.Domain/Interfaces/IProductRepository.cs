@@ -8,4 +8,6 @@ public interface IProductRepository : IBaseRepository<Product>
     Task<List<Product>> GetAllProductsWithCategory();
     Task<Product> GetProductByIdWithCategory(Guid id);
     Task<Guid> DisableProduct(Guid id);
+    Task<Guid> ActiveProduct(Guid id);
+    Task<Product> GetLookupProduct(string barcode);
 }
