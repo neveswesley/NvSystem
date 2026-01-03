@@ -11,12 +11,12 @@ namespace NvSystem.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
         private readonly IUserService _userService;
 
-        public UserController(IMediator mediator, IUserService userService)
+        public UsersController(IMediator mediator, IUserService userService)
         {
             _mediator = mediator;
             _userService = userService;
