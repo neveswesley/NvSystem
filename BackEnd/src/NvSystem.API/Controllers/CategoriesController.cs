@@ -49,9 +49,13 @@ namespace NvSystem.API.Controllers
         }
 
         [HttpGet("GetAllCategories")]
-        public async Task<ActionResult> GetAllCategories(CancellationToken cancellationToken)
+        public async Task<ActionResult> GetAllCategories(CancellationToken cancellationToken, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
-            var result = await _mediator.Send(new GetAllCategoryQuery(), cancellationToken);
+            var result = await _mediator.Send(new GetAllCategoryQuery()
+            {
+                Page = page,
+                PageSize = pageSize
+            }, cancellationToken);
             return Ok(result);
         }
 

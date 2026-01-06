@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NvSystem.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ece9650ec7d66818c9ca5c0d3f97296a1943a01d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63dda9790bdb50f19a6dee409baa67502d14bdd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("NvSystem.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NvSystem.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
