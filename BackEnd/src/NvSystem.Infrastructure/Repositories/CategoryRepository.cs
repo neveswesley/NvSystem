@@ -23,4 +23,9 @@ public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
             _db.Set<Category>().Update(category);
         }
     }
+
+    public IQueryable<Category> Query()
+    {
+        return _db.Categories.AsNoTracking();
+    }
 }

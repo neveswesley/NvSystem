@@ -22,7 +22,6 @@
 
     <ItemGroup>
       <Folder Include="UseCases\SaleItem\Validators\" />
-      <Folder Include="UseCases\Sale\Queries\" />
       <Folder Include="UseCases\Sale\Validator\" />
     </ItemGroup>
 

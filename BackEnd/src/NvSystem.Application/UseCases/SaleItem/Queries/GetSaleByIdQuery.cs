@@ -25,7 +25,7 @@ public class GetSaleByIdQueryHandler : IRequestHandler<GetSaleByIdQuery, SaleRes
             Id = sale.Id,
             SaleDate = sale.CreatedAt,
             TotalAmount = sale.TotalAmount,
-            Status = sale.Status,
+            Status = sale.Status.ToString(),
             Items = sale.Items.Select(i => new SaleItemResponse()
             {
                 Id = i.Id,

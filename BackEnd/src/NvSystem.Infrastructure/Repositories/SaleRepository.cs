@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NvSystem.Domain.DTOs;
 using NvSystem.Domain.Entities;
 using NvSystem.Domain.Interfaces;
 using NvSystem.Infrastructure.Database;
@@ -17,5 +18,10 @@ public class SaleRepository : BaseRepository<Sale>, ISaleRepository
     public Task<Sale> GetSaleByIdWithItemsAsync(Guid id, CancellationToken cancellationToken)
     {
         return _context.Sales.Include(x => x.Items).FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+    }
+
+    public IQueryable<Sale> Query()
+    {
+        return _context.Sales.Include(x=>x.Items).AsNoTracking();
     }
 }
