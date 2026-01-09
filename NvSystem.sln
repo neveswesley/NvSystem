@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{43ACBEBE-9AF2-43E3-B06C-84C48121657E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{43ACBEBE-9AF2-43E3-B06C-84C48121657E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{84A6858F-34F4-40DD-A16B-CA710836746D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{84A6858F-34F4-40DD-A16B-CA710836746D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{63B3CB57-0B72-40AD-B0F8-0AB1BB7DBC06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.API", "BackEnd\src\NvSystem.API\NvSystem.API.csproj", "{DFABD90D-047D-4DBF-AB78-B7D8834C6CEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.API", "src\BackEnd\NvSystem.API\NvSystem.API.csproj", "{DFABD90D-047D-4DBF-AB78-B7D8834C6CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.Application", "BackEnd\src\NvSystem.Application\NvSystem.Application.csproj", "{85C60FBC-23CA-4069-B371-7E00F7A79FE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.Application", "src\BackEnd\NvSystem.Application\NvSystem.Application.csproj", "{85C60FBC-23CA-4069-B371-7E00F7A79FE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.Domain", "BackEnd\src\NvSystem.Domain\NvSystem.Domain.csproj", "{47171B39-F4A0-433B-824B-B0F46541F7BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.Domain", "src\BackEnd\NvSystem.Domain\NvSystem.Domain.csproj", "{47171B39-F4A0-433B-824B-B0F46541F7BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.Infrastructure", "BackEnd\src\NvSystem.Infrastructure\NvSystem.Infrastructure.csproj", "{99106FF2-0F9D-4A36-B652-8F551B4BCAE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NvSystem.Infrastructure", "src\BackEnd\NvSystem.Infrastructure\NvSystem.Infrastructure.csproj", "{99106FF2-0F9D-4A36-B652-8F551B4BCAE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
