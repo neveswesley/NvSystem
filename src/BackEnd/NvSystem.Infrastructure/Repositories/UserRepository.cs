@@ -14,22 +14,21 @@ public class UserRepository : IUserRepository
         _db = db;
     }
 
-    public async Task<Guid> CreateUser(User user)
-    {
-        await _db.Users.AddAsync(user);
-        await _db.SaveChangesAsync();
-
-        return user.Id;
-    }
+    public async Task CreateUser(User user) => await _db.Users.AddAsync(user);
 
     public async Task<User> GetByEmail(string email)
     {
-        var user = await _db.Users.FirstOrDefaultAsync(x=>x.Email == email);
+        var user = await _db.Users.FirstOrDefaultAsync(x => x.Email == email);
         return user;
     }
 
     public async Task<User?> GetById(Guid id)
     {
         return await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+    public Task<bool> ExistActiveUserWithEmail(string email)
+    {
+        return _db.Users.AnyAsync(x => x.Email.Equals(email));
     }
 }

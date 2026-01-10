@@ -1,8 +1,10 @@
 // Configure the HTTP request pipeline.
 
 using Microsoft.EntityFrameworkCore;
+using NvSystem.API.Filters;
 using NvSystem.API.Middleware;
 using NvSystem.Application;
+using NvSystem.Exceptions.ExceptionsBase;
 using NvSystem.Infrastructure;
 using NvSystem.Infrastructure.Database;
 
@@ -23,6 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
 builder.Services.AddApplicationServices();
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
 var app = builder.Build();
 
@@ -33,6 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<CultureMiddleware>();
 
 app.UseHttpsRedirection();
 

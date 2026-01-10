@@ -1,33 +1,40 @@
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NvSystem.Application.Services.Interfaces;
-using NvSystem.Application.UseCases.User.Commands;
+using NvSystem.Application.UseCases.User;
 using NvSystem.Application.UseCases.User.Query;
-using NvSystem.Domain.DTOs;
-using NvSystem.Domain.Entities;
+using NvSystem.Communications.Requests;
 
 namespace NvSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IUserService _userService;
+        private readonly RegisterUserUseCase _registerUserUseCase;
 
-        public UsersController(IMediator mediator, IUserService userService)
+        public UsersController(IMediator mediator, RegisterUserUseCase registerUserUseCase)
         {
             _mediator = mediator;
-            _userService = userService;
+            _registerUserUseCase = registerUserUseCase;
         }
 
-        [HttpPost("register")]
+
+        /*[HttpPost("register")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand request, CancellationToken cancellationToken)
         {
             var userId = await _mediator.Send(request, cancellationToken);
             return CreatedAtAction(nameof(GetById), new {id = userId}, userId);
+        }*/
+        
+        [HttpPost]
+        public async Task<IActionResult> Register(RequestRegisterUserJson request)
+        {
+            var result = await _registerUserUseCase.Execute(request);
+            return Ok(result);
         }
+        
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] Guid id, CancellationToken cancellationToken)

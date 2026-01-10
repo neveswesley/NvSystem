@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using NvSystem.Application.Services;
 using NvSystem.Application.Services.Interfaces;
+using NvSystem.Application.UseCases.User;
 using NvSystem.Domain.Interfaces;
 using NvSystem.Infrastructure.Repositories;
 
@@ -27,7 +28,6 @@ public static class ServiceExtensions
     
     private static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IUserService, UserService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -36,6 +36,7 @@ public static class ServiceExtensions
         services.AddScoped<IBarcodeGenerator, RandomBarCodeGenerator>();
         services.AddScoped<ISaleRepository, SaleRepository>();
         services.AddScoped<ISaleItemRepository, SaleItemRepository>();
+        services.AddScoped<RegisterUserUseCase>();
     }
 
     private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)

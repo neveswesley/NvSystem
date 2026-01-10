@@ -1,11 +1,14 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using NvSystem.Application.UseCases.Product;
 using NvSystem.Application.UseCases.Product.Commands;
 using NvSystem.Application.UseCases.Product.Queries;
+using NvSystem.Communications.Requests;
+using NvSystem.Communications.Responses;
 
 namespace NvSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -16,12 +19,12 @@ namespace NvSystem.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> Post(CreateProductCommand command, CancellationToken ct)
         {
             var result = await _mediator.Send(command, ct);
             return CreatedAtAction(nameof(GetById), new {id = result}, result);
-        }
+        }*/
 
         [HttpGet]
         public async Task<IActionResult> Get(CancellationToken ct)
@@ -63,6 +66,15 @@ namespace NvSystem.API.Controllers
         {
             var product = await _mediator.Send(new GetLookupByBarcode(barcode));
             return Ok(product);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseRegisterProductJson), StatusCodes.Status201Created)]
+        public IActionResult Register(RequestRegisterProductJson request)
+        {
+            var useCase = new RegisterProductUseCase();
+            var result = useCase.Execute(request);
+            return Created(string.Empty, result);
         }
         
     }
